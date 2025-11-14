@@ -14,9 +14,7 @@ SwiftUI modifiers that adapt layout dimensions to system text size settings.
 
 AdaptiveDimensions provides SwiftUI modifiers that adjust layout dimensions in response to system text size changes. Instead of fixed values that remain constant, these modifiers scale frames, padding, spacing, and corner radius proportionally as Dynamic Type settings change, keeping your layout proportions intact across all size configurations.
 
-<div align="center">
-  <img width="600" src="/Resources/visualexample.png" alt="Comparison of fixed vs. adaptive UI scaling across text sizes. Shows three panels: 1) Large text size with proportional avatar and text, 2) AX1 accessibility size where fixed frame avatar becomes tiny compared to larger text while scaled frame avatar maintains proper proportion, 3) AX2 accessibility size showing the same pattern - fixed frame stays small while scaled frame grows appropriately with the text size.">
-</div>
+![Comparison of fixed vs. adaptive UI scaling across text sizes. Shows three panels: 1) Large text size with proportional avatar and text, 2) AX1 accessibility size where fixed frame avatar becomes tiny compared to larger text while scaled frame avatar maintains proper proportion, 3) AX2 accessibility size showing the same pattern - fixed frame stays small while scaled frame grows appropriately with the text size.](/Resources/visualexample.png)
 
 ## Installation
 
