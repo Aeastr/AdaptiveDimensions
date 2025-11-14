@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="200" height="200" src="/Resources/icon/icon.png" alt="AdaptiveDimensions Icon">
+  <img width="150" height="150" src="/Resources/icon/icon.png" alt="AdaptiveDimensions Icon">
   <h1><b>AdaptiveDimensions</b></h1>
   <p>
     SwiftUI modifiers that adapt layout dimensions to system text size settings.
