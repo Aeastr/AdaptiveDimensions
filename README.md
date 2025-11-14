@@ -1,20 +1,24 @@
-# AdaptiveDimensions
+<div align="center">
+  <img width="200" height="200" src="/Resources/icon/icon.png" alt="AdaptiveDimensions Icon">
+  <h1><b>AdaptiveDimensions</b></h1>
+  <p>
+    SwiftUI modifiers that adapt layout dimensions to system text size settings.
+  </p>
+</div>
 
-SwiftUI modifiers that adapt layout dimensions to system text size settings.
-
-<p>
-  <img src="https://img.shields.io/badge/iOS-14%2B-blue.svg" alt="iOS 14+">
-  <img src="https://img.shields.io/badge/macOS-11%2B-blue.svg" alt="macOS 11+">
-  <img src="https://img.shields.io/badge/watchOS-7%2B-blue.svg" alt="watchOS 7+">
-  <img src="https://img.shields.io/badge/tvOS-14%2B-blue.svg" alt="tvOS 14+">
-  <img src="https://img.shields.io/badge/visionOS-1%2B-blue.svg" alt="visionOS 1+">
-  <img src="https://img.shields.io/badge/Swift-6.0-orange.svg" alt="Swift 6.0">
-  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT">
+<p align="center">
+  <a href="https://developer.apple.com/ios/"><img src="https://img.shields.io/badge/iOS-14%2B-blue.svg" alt="iOS 14+"></a>
+  <a href="https://developer.apple.com/macOS/"><img src="https://img.shields.io/badge/macOS-11%2B-blue.svg" alt="macOS 11+"></a>
+  <a href="https://developer.apple.com/watchOS/"><img src="https://img.shields.io/badge/watchOS-7%2B-blue.svg" alt="watchOS 7+"></a>
+  <a href="https://developer.apple.com/tvOS/"><img src="https://img.shields.io/badge/tvOS-14%2B-blue.svg" alt="tvOS 14+"></a>
+  <a href="https://developer.apple.com/visionOS/"><img src="https://img.shields.io/badge/visionOS-1%2B-blue.svg" alt="visionOS 1+"></a>
+  <a href="https://swift.org/"><img src="https://img.shields.io/badge/Swift-6.0-orange.svg" alt="Swift 6.2"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a>
 </p>
 
 AdaptiveDimensions provides SwiftUI modifiers that adjust layout dimensions in response to system text size changes. Instead of fixed values that remain constant, these modifiers scale frames, padding, spacing, and corner radius proportionally as Dynamic Type settings change, keeping your layout proportions intact across all size configurations.
 
-![Comparison of fixed vs. adaptive UI scaling across text sizes. Shows three panels: 1) Large text size with proportional avatar and text, 2) AX1 accessibility size where fixed frame avatar becomes tiny compared to larger text while scaled frame avatar maintains proper proportion, 3) AX2 accessibility size showing the same pattern - fixed frame stays small while scaled frame grows appropriately with the text size.](/Resources/visualexample.png)
+![Comparison of fixed vs. adaptive UI scaling across text sizes. Shows three panels: 1) Large text size with proportional avatar and text, 2) AX1 accessibility size where fixed frame avatar becomes tiny compared to larger text while scaled frame avatar maintains proper proportion, 3) AX2 accessibility size showing the same pattern - fixed frame stays small while scaled frame grows appropriately with the text size.](/Resources/examples/visualexample.png)
 
 ## Installation
 
