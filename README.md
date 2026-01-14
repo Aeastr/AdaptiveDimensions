@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="150" height="150" src="/Resources/icon/icon.png" alt="AdaptiveDimensions Icon">
+  <img width="128" height="128" src="/Resources/icon/icon.png" alt="AdaptiveDimensions Icon">
   <h1><b>AdaptiveDimensions</b></h1>
   <p>
     SwiftUI modifiers that adapt layout dimensions to system text size settings.
@@ -7,29 +7,26 @@
 </div>
 
 <p align="center">
-  <a href="https://developer.apple.com/ios/"><img src="https://img.shields.io/badge/iOS-14%2B-blue.svg" alt="iOS 14+"></a>
-  <a href="https://developer.apple.com/macOS/"><img src="https://img.shields.io/badge/macOS-11%2B-blue.svg" alt="macOS 11+"></a>
-  <a href="https://developer.apple.com/watchOS/"><img src="https://img.shields.io/badge/watchOS-7%2B-blue.svg" alt="watchOS 7+"></a>
-  <a href="https://developer.apple.com/tvOS/"><img src="https://img.shields.io/badge/tvOS-14%2B-blue.svg" alt="tvOS 14+"></a>
-  <a href="https://developer.apple.com/visionOS/"><img src="https://img.shields.io/badge/visionOS-1%2B-blue.svg" alt="visionOS 1+"></a>
-  <a href="https://swift.org/"><img src="https://img.shields.io/badge/Swift-6.0-orange.svg" alt="Swift 6.2"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a>
+  <a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-6.0+-F05138?logo=swift&logoColor=white" alt="Swift 6.0+"></a>
+  <a href="https://developer.apple.com"><img src="https://img.shields.io/badge/iOS-14+-000000?logo=apple" alt="iOS 14+"></a>
+  <a href="https://developer.apple.com"><img src="https://img.shields.io/badge/macOS-11+-000000?logo=apple" alt="macOS 11+"></a>
+  <a href="https://developer.apple.com"><img src="https://img.shields.io/badge/tvOS-14+-000000?logo=apple" alt="tvOS 14+"></a>
+  <a href="https://developer.apple.com"><img src="https://img.shields.io/badge/watchOS-7+-000000?logo=apple" alt="watchOS 7+"></a>
+  <a href="https://developer.apple.com"><img src="https://img.shields.io/badge/visionOS-1+-000000?logo=apple" alt="visionOS 1+"></a>
 </p>
 
-AdaptiveDimensions provides SwiftUI modifiers that adjust layout dimensions in response to system text size changes. Instead of fixed values that remain constant, these modifiers scale frames, padding, spacing, and corner radius proportionally as Dynamic Type settings change, keeping your layout proportions intact across all size configurations.
 
-![Comparison of fixed vs. adaptive UI scaling across text sizes. Shows three panels: 1) Large text size with proportional avatar and text, 2) AX1 accessibility size where fixed frame avatar becomes tiny compared to larger text while scaled frame avatar maintains proper proportion, 3) AX2 accessibility size showing the same pattern - fixed frame stays small while scaled frame grows appropriately with the text size.](/Resources/examples/visualexample.png)
+## Overview
+
+- **Scaled frames** - Fixed dimensions that grow with Dynamic Type
+- **Scaled padding** - Uniform, edge-specific, or custom insets
+- **Scaled spacing** - VStack/HStack with proportional gaps
+- **Scaled corner radius** - Corners that stay proportional
+
+![Comparison of fixed vs adaptive scaling](/Resources/examples/visualexample.png)
+
 
 ## Installation
-
-### Swift Package Manager
-
-Via Xcode:
-1. File → Add Package Dependencies
-2. Enter the repository URL
-3. Select your version and add to the target
-
-Or add directly to `Package.swift`:
 
 ```swift
 dependencies: [
@@ -37,84 +34,61 @@ dependencies: [
 ]
 ```
 
+```swift
+import AdaptiveDimensions
+```
+
+
 ## Usage
 
-All modifiers require a text style to determine the scaling curve. Use the style that matches your content's visual weight—`.body` works well for most UI elements.
+All modifiers require a text style to determine the scaling curve. Use `.body` for most UI elements.
 
 ### Scaled Frames
-
-Fixed dimensions that adapt to text size:
 
 ```swift
 Circle()
     .fill(.blue)
     .scaledFrame(width: 44, height: 44, relativeTo: .body)
 
+// With flexible constraints
 Rectangle()
-    .scaledFrame(width: 200, relativeTo: .body)
-```
-
-Flexible constraints with min, ideal, and max values:
-
-```swift
-Rectangle()
-    .fill(.green)
     .scaledFrame(
-        minWidth: 100,
-        idealWidth: 200,
-        maxWidth: 300,
-        minHeight: 60,
-        maxHeight: 120,
+        minWidth: 100, idealWidth: 200, maxWidth: 300,
+        minHeight: 60, maxHeight: 120,
         relativeTo: .body
     )
 ```
 
 ### Scaled Padding
 
-Uniform padding around all edges:
-
 ```swift
+// Uniform
 Text("Content")
     .scaledPadding(16, relativeTo: .body)
-```
 
-Edge-specific padding:
-
-```swift
+// Edge-specific
 Text("Content")
     .scaledPadding(.horizontal, 20, relativeTo: .body)
-```
 
-Custom edge insets:
-
-```swift
+// Custom insets
 Text("Content")
     .scaledPadding(ScaledEdgeInsets(
-        top: 24,
-        leading: 16,
-        bottom: 16,
-        trailing: 16,
+        top: 24, leading: 16, bottom: 16, trailing: 16,
         relativeTo: .body
     ))
 ```
 
 ### Scaled Spacing
 
-For stacks where spacing should scale with text size:
-
 ```swift
 ScaledVStack(spacing: 12, relativeTo: .body) {
     Text("First")
     Text("Second")
-    Text("Third")
 }
-```
 
-```swift
 ScaledHStack(spacing: 8, relativeTo: .body) {
     Text("One")
     Text("Two")
-    Text("Three")
 }
 ```
 
@@ -126,14 +100,12 @@ Rectangle()
     .scaledCornerRadius(12, relativeTo: .body)
 ```
 
-### Combined Modifiers
-
-Modifiers work together naturally:
+### Combined Example
 
 ```swift
 VStack {
     Text("Scaled Card").font(.headline)
-    Text("This layout maintains proportions across all text sizes").font(.body)
+    Text("Maintains proportions across all text sizes").font(.body)
 }
 .scaledPadding(20, relativeTo: .body)
 .scaledFrame(minWidth: 200, maxWidth: 400, relativeTo: .body)
@@ -141,9 +113,8 @@ VStack {
 .scaledCornerRadius(16, relativeTo: .body)
 ```
 
-## Text Style Reference
 
-Choose a style that matches your layout's visual weight:
+## Text Style Reference
 
 | Style | Use Case |
 |-------|----------|
@@ -151,44 +122,15 @@ Choose a style that matches your layout's visual weight:
 | `.title`, `.title2`, `.title3` | Section headers |
 | `.headline` | Emphasized content |
 | `.body` | Standard UI (default) |
-| `.callout` | Secondary content |
-| `.subheadline`, `.footnote`, `.caption`, `.caption2` | Small UI details |
+| `.callout`, `.subheadline` | Secondary content |
+| `.footnote`, `.caption`, `.caption2` | Small UI details |
 
-## API Reference
-
-### View Modifiers
-
-**Frames**
-- `scaledFrame(width:height:alignment:relativeTo:)`
-- `scaledFrame(minWidth:idealWidth:maxWidth:minHeight:idealHeight:maxHeight:relativeTo:alignment:)`
-
-**Padding**
-- `scaledPadding(_:relativeTo:)` – uniform
-- `scaledPadding(_:_:relativeTo:)` – edge-specific
-- `scaledPadding(_:)` – ScaledEdgeInsets
-
-**Styling**
-- `scaledCornerRadius(_:relativeTo:)`
-
-### Layout Containers
-
-- `ScaledVStack(alignment:spacing:relativeTo:content:)`
-- `ScaledHStack(alignment:spacing:relativeTo:content:)`
-
-### Utilities
-
-- `ScaledEdgeInsets(top:leading:bottom:trailing:relativeTo:)`
-
-## Requirements
-
-- iOS 14.0+, macOS 11.0+, watchOS 7.0+, tvOS 14.0+, visionOS 1.0+
-- Swift 6.0+
-- Xcode 16.0+
-
-## License
-
-MIT. See LICENSE file for details.
 
 ## Contributing
 
-Pull requests are welcome. Please submit changes with clear descriptions and test coverage.
+Contributions welcome. Please submit changes with clear descriptions.
+
+
+## License
+
+MIT. See [LICENSE](LICENSE) for details.
